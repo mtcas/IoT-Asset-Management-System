@@ -1,0 +1,47 @@
+﻿@model IEnumerable<IoTAssetManagement2.Models.Entities.Devices>
+
+@{
+    ViewData["Title"] = "Devices";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>IoT Devices</h2>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+
+                <th>Device</th>
+
+                <th>Serial Number</th>
+
+                <th>Device Type</th>
+
+                <th>Firmware</th>
+
+                <th>Group</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DeviceName</td>
+
+                    <td>@item.SerialNumber</td>
+
+                    <td>@item.DeviceType.Name</td>
+
+                    <td>@item.Firmware.Version</td>
+
+                    <td>@item.Group.GroupName</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

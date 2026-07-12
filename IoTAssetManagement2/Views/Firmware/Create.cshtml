@@ -1,0 +1,51 @@
+﻿@model IoTAssetManagement2.Models.Entities.Firmware
+
+@{
+    ViewData["Title"] = "Add Firmware";
+}
+
+<div class="container mt-4">
+    <h2>Add Firmware</h2>
+    <hr />
+
+    <form asp-action="Create" method="post">
+        @* validation for keys *@
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label asp-for="Version" class="form-label"></label>
+            <input asp-for="Version" class="form-control" />
+            <span asp-validation-for="Version" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ReleaseDate" class="form-label"></label>
+            <input asp-for="ReleaseDate" type="date" class="form-control" />
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description"
+                      class="form-control"
+                      rows="4"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

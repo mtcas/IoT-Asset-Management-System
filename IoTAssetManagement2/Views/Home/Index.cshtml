@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-5">
+        <h1>IoT Asset Tracking & Monitoring System</h1>
+
+        <p class="lead">
+            Centrally Manage IoT devices, firmware versions and hierarchical groups from one platform.
+        </p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Total Devices</h5>
+                    <h2>@ViewBag.TotalDevices</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>All Firmware Versions</h5>
+                    <h2>@ViewBag.TotalFirmware</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Total Groups</h5>
+                    <h2>@ViewBag.TotalGroups</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>All Device Types</h5>
+                    <h2>@ViewBag.TotalDeviceTypes</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="text-center">
+
+        <h3>Quick Actions</h3>
+
+        <a asp-controller="Firmware"
+           asp-action="Index"
+           class="btn btn-success m-2">
+            Manage Firmware
+        </a>
+
+
+        <a asp-controller="Groups"
+           asp-action="Index"
+           class="btn btn-success m-2">
+            Manage Groups
+        </a>
+
+        <a asp-controller="Device"
+           asp-action="Index"
+           class="btn btn-success m-2">
+            View Devices
+        </a>
+
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h4>About the System</h4>
+
+            <p>
+                This application was developed as an IoT Asset Tracking and Sensor Monitoring System.
+                It allows users to manage firmware versions, organise devices into hierarchical groups,
+                and view all registered IoT devices with their related firmware and device types.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

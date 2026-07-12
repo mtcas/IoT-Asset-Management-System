@@ -1,0 +1,71 @@
+@model IEnumerable<IoTAssetManagement2.Models.Entities.Groups>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Group Management</h2>
+
+    <a asp-action="Create"
+       class="btn btn-success">
+        + Add Group
+    </a>
+
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentGroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Devices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InverseParentGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentGroup)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ParentGroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Devices)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.InverseParentGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ParentGroup)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GroupId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GroupId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GroupId">Delete</a>
+            </td>
+        </tr>
+    }   
+    </tbody>
+</table>

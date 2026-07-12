@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IoTAssetManagement2.Models.Entities.Firmware>
+
+@{
+    ViewData["Title"] = "Firmware Management System";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Firmware Management</h2>
+
+    <a asp-action="Create"
+       class="btn btn-success">
+        + Add Firmware
+    </a>
+
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No firmware versions have been added yet.
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Version</th>
+                <th>Release Date</th>
+                <th>Description</th>
+                <th width="180">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Version</td>
+
+                    <td>@item.ReleaseDate.ToShortDateString()</td>
+
+                    <td>@item.Description</td>
+
+                    <td>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@item.FirmwareId"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.FirmwareId"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
