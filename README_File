@@ -1,0 +1,55 @@
+Project: IoT Device Management System
+Author: Mohamed Tawfiq Cassim
+README File
+ASP.NET Core | C# | SQL Server | Entity Framework Core
+
+Overview
+This ASP.NET Core MVC web application was developed as a Software Engineering technical assessment for an IoT hardware company. The system manages 
+varying tracking and monitoring devices, firmware versions, and hierarchical device groups. Built using a Database First approach with Entity Framework Core,
+it connects to a relational SQL Server database. The solution highlights clean architecture and effective database management following the standard MVC pattern.
+
+Features
+- Dashboard (Total Devices, Firmware Versions, Device Groups, Device Types)
+- Firmware Management (View firmware versions, Add new firmware, Edit existing firmware, Delete firmware)
+- Group Management (Create and manage hierarchical device groups, Edit group information, Delete groups)
+- Device Management (Read-only view of registered IoT devices, Displays associated Device Type, Firmware Version, and Group)
+
+Database Design
+The database was designed using Microsoft SQL Server and follows relational database principles.
+Tables - DeviceTypes, Firmware, Groups, Devices
+Relationships:
+- One Device Type can have many Devices.
+- One Firmware version can be installed on many Devices.
+- One Group can contain many Devices.
+- Groups support hierarchical parent-child relationships through a self-referencing foreign key.
+
+Technology Stack
+- ASP.NET Core MVC (.NET 8)
+- C#
+- Microsoft SQL Server (MSSQL)
+- Entity Framework Core (Database First)
+- HTML5
+- Bootstrap 5
+
+Start-Up Process
+Prerequisites:
+- Visual Studio 2022
+- .NET 8 SDK
+- SQL Server Management Studio (SSMS)
+Installation:
+- Clone or download the repository.
+- Open the solution (IoTAssetManagement2.sln) in Visual Studio.
+- Execute the SQL scripts found in the DatabaseScripts folder to create and populate the database.
+- Update the SQL Server connection string in appsettings.json to match your local SQL Server instance.
+- Build and run the application.
+
+Documentation
+The repository includes:
+- Database query scripts
+- Solution with sample seed data
+- Software Design Document
+- Database Design Document
+- Source code
+- Entity Framework Core implementation
+-ReadMe File
+
